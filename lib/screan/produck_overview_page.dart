@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_apps/model/product.dart';
+import 'package:shop_apps/widget/product_item.dart';
 
 class ProductOverviewPage extends StatelessWidget {
   final List<Product> loadproduct = [
@@ -42,7 +43,7 @@ class ProductOverviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Myshop"),
+        title: const Text("Myshop"),
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(10),
@@ -53,9 +54,11 @@ class ProductOverviewPage extends StatelessWidget {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
         ),
-        itemBuilder: (ctx, i) {
-          return Container();
-        },
+        itemBuilder: (ctx, i) => ProductItem(
+          id: loadproduct[i].id,
+          imageUrl: loadproduct[i].imageUrl,
+          title: loadproduct[i].title,
+        ),
       ),
     );
   }
