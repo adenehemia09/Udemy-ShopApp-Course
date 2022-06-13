@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_apps/screan/prooduct_detitle_page.dart';
 
 class ProductItem extends StatelessWidget {
   final String id;
@@ -19,7 +20,11 @@ class ProductItem extends StatelessWidget {
       child: GridTile(
         child: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/detitle-product');
+            Navigator.pushNamed(
+              context,
+              ProductDetitlePage.routeName,
+              arguments: id,
+            );
           },
           child: Image.network(
             imageUrl,
